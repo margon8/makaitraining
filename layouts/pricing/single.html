@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <section class="pricing-header">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </section>
+  <section class="pricing-table">
+    {{ $table := .RawContent | markdownify }}
+    {{ $table = replace $table "<table>" "<table class=\\"pricing\\">" }}
+    {{ $table | safeHTML }}
+  </section>
+{{ end }}
